@@ -1,1 +1,1 @@
-getElementById("test").innerHTML = "dynamic";
+document.getElementById("test").innerHTML = "dynamic";
