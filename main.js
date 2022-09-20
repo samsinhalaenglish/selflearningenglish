@@ -1,0 +1,1 @@
+getElementById("test").innerHTML = "dynamic";
