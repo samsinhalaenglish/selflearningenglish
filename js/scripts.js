@@ -7,8 +7,7 @@
 // Scripts
 // 
 
-var accessKey = "AKIAV2C4FPQRTBI2OVWP";
-var secretAccessKey = "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";
+
 
 var brian = null;
 
