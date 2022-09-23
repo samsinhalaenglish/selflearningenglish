@@ -1,2 +1,2 @@
 document.getElementById("test").innerHTML = "dynamic";
-console.log(1);
+console.log(2);
