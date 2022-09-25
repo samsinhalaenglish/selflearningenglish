@@ -9,7 +9,7 @@
 
 
 
-var brian = null;
+var utterance = null;
 
 var api = "https://opensheet.elk.sh/1j_A7AjZET41o9FyUQb82O96vRsGG3Aa12Rf6MHUQtfs/Sheet2";
 
@@ -43,30 +43,15 @@ window.addEventListener('DOMContentLoaded', event => {
 
 
 function registerSpeak(){
-
-    var awsCredentials = new AWS.Credentials(accessKey, secretAccessKey);
-    var settings = {
-        awsCredentials: awsCredentials,
-        awsRegion: "us-west-2",
-        pollyVoiceId: "Brian",
-        cacheSpeech: true
-    }
-    brian = ChattyKathy(settings);
-    
-   // brian.Speak("Test");
-  
-
-    if (brian.IsSpeaking()) {
-        brian.ShutUp(); 
-    }
-
-    //brian.ForgetCachedSpeech();
-
-
+    var utterance = new SpeechSynthesisUtterance();
+    utterance.lang = "en-GB";
+    var voices = window.speechSynthesis.getVoices();
+    utterance.voice = voices.filter(function(voice) { return voice.name == 'Google UK English Male'; })[0];
 }
 
 function speak(text){
-	brian.Speak(text);
+    utterance.text = text;
+    window.speechSynthesis.speak(utterance);
 }
 
 
