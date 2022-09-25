@@ -43,7 +43,7 @@ window.addEventListener('DOMContentLoaded', event => {
 
 
 function registerSpeak(){
-    var utterance = new SpeechSynthesisUtterance();
+    utterance = new SpeechSynthesisUtterance();
     utterance.lang = "en-GB";
     var voices = window.speechSynthesis.getVoices();
     utterance.voice = voices.filter(function(voice) { return voice.name == 'Google UK English Male'; })[0];
