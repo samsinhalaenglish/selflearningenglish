@@ -74,12 +74,14 @@ function loadMetaData(){
 
         metaData = data;
         displayPages();
-        
-        
-        loadPage(1);
-
-        console.log(data);
-        
+   
+        //load users previously opend page
+        var opendPage = localStorage.getItem("opendPage");
+        if(opendPage){
+            $('#pages').pagination('selectPage', opendPage);
+        }else{
+            loadPage(1);
+        }
       
     });
 }
@@ -92,10 +94,7 @@ function loadQuestions(){
     }).then(function(data) {
 
         sheetData = data;
-        console.log(url); 
-        console.log(data);
-
-
+ 
         qData[currentSheet] = {
                 "index": 0,
                 "length": data.length
@@ -136,9 +135,9 @@ function loadPage(sheetNo){
         title +=   ' : ' + getParamValue(sheet + '_TITLE');
     }
     
-   
-
     $('#pageTitle').html(title );
+
+    localStorage.setItem("opendPage", sheetNo);
 }
 
 function getParamValue(paramKey){
@@ -152,12 +151,7 @@ function getParamValue(paramKey){
 
 function displayQuestion(){
 
-    
-    //localStorage.setItem("qData", JSON.stringify(qData));
-
-
     var question = sheetData[qData[currentSheet].index];
-
 
     var htmlTxt = "";
 
