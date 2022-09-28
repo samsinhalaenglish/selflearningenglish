@@ -111,7 +111,14 @@ function loadQuestions(){
 
 function displayPages(){
 
-    
+    $('#pages').pagination({
+        items: getParamValue('NO_OF_SHEETS'),
+        itemsOnPage: 1,
+        cssStyle: 'light-theme',
+        onPageClick(pageNumber, event){
+            loadPage('SHEET_' + pageNumber);
+        }
+    });
 
 
 }
@@ -123,11 +130,11 @@ function loadPage(sheet){
     currentSheet = sheet;
     loadQuestions(sheet);
 
-    $('#pageTitle').html( getPageTitle(sheet + '_TITLE'));
+    $('#pageTitle').html( getParamValue(sheet + '_TITLE'));
 }
 
-function getPageTitle(sheetKey){
-    var metadataObj = filterJsonArrayByField(metaData, 'key', sheetKey, false);
+function getParamValue(paramKey){
+    var metadataObj = filterJsonArrayByField(metaData, 'key', paramKey, false);
     if(metadataObj.value){
         return metadataObj.value;
     }
@@ -244,6 +251,9 @@ $(document).ready(function(){
 	registerSpeak();
     loadMetaData();
     //loadQuestions(1);
+
+
+    
 
 });
 
