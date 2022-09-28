@@ -76,7 +76,7 @@ function loadMetaData(){
         displayPages();
         
         
-        loadPage('SHEET_1');
+        loadPage(1);
 
         console.log(data);
         
@@ -116,7 +116,7 @@ function displayPages(){
         itemsOnPage: 1,
         cssStyle: 'light-theme',
         onPageClick(pageNumber, event){
-            loadPage('SHEET_' + pageNumber);
+            loadPage(pageNumber);
         }
     });
 
@@ -124,13 +124,21 @@ function displayPages(){
 }
 
 
-function loadPage(sheet){
-
+function loadPage(sheetNo){
+    var sheet = 'SHEET_' + sheetNo;
     //var title = metaData[]
     currentSheet = sheet;
     loadQuestions(sheet);
 
-    $('#pageTitle').html( getParamValue(sheet + '_TITLE'));
+
+    var title = "Page " + sheetNo;
+    if(getParamValue(sheet + '_TITLE') != ""){
+        title +=   ' : ' + getParamValue(sheet + '_TITLE');
+    }
+    
+   
+
+    $('#pageTitle').html(title );
 }
 
 function getParamValue(paramKey){
