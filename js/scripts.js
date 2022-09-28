@@ -81,8 +81,7 @@ function loadMetaData(){
             $('#pages').pagination('selectPage', opendPage);
         }else{
             loadPage(1);
-        }
-      
+        }   
     });
 }
 
