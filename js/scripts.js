@@ -176,9 +176,9 @@ function displayQuestion(){
     htmlTxt +=                           '</div>';
     htmlTxt +=                           '<div class="d-flex flex-row justify-content-between align-items-center p-3 bg-white">';
     htmlTxt +=                                    '<button id="btnPrev" class="btn btn-dark d-flex align-items-center " type="button" onclick="prev()">';
-    htmlTxt +=                                    'Previous';
+    htmlTxt +=                                    'Previous Question';
     htmlTxt +=                                    '</button>';
-    htmlTxt +=                                    '<button id="btnNext" class="btn btn-danger  align-items-center" type="button" onclick="next()">Next';
+    htmlTxt +=                                    '<button id="btnNext" class="btn btn-danger  align-items-center" type="button" onclick="next()">Next Question';
     htmlTxt +=                                    '</button>';
     htmlTxt +=                           '</div>';
     htmlTxt +=                  '</div>';
